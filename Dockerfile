@@ -1,5 +1,7 @@
 FROM arm32v7/debian:stretch-slim
 
+USER ROOT 
+
 ARG DEF_TARGET_PORT=80
 
 ENV TARGET_PORT=$DEF_TARGET_PORT
