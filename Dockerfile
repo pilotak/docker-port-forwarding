@@ -1,13 +1,16 @@
 FROM arm32v7/debian:stretch-slim
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 ARG DEF_TARGET_PORT=80
 
 ENV TARGET_PORT=$DEF_TARGET_PORT
 
-RUN apt-get -qq update --fix-missing \
-&& apt-get -y -qq install systemd iptables
-
 EXPOSE $LOCAL_PORT
+
+RUN apt-get clean && apt-get -qq update
+
+RUN apt-get install -qq --no-install-recommends systemd iptables
 
 CMD grep -qF -- "net.ipv4.ip_forward=1" /etc/sysctl.conf || echo "net.ipv4.ip_forward=1" >> /etc/sysctl.conf \
 && iptables -F \
