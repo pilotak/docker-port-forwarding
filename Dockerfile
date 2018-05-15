@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ARG DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 ARG DEF_TARGET_PORT=80
 
