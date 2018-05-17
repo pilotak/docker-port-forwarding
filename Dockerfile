@@ -10,8 +10,7 @@ ENV TARGET_PORT=$DEF_TARGET_PORT
 
 EXPOSE $LOCAL_PORT
 
-RUN apk update && apk add iptables \
-&& rm -rf /var/cache/apk/*
+RUN apk update && apk add iptables
 
 CMD iptables -F \
 && iptables -t nat -F \
