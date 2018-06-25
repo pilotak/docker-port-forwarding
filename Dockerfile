@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi-alpine
+FROM alpine
 
 ARG DEF_LOCAL_PORT=8000
 ARG DEF_TARGET_IP=localhost
@@ -10,11 +10,7 @@ ENV TARGET_PORT=$DEF_TARGET_PORT
 
 EXPOSE $LOCAL_PORT
 
-RUN [ "cross-build-start" ]
-
 RUN apk update && apk add iptables
-
-RUN [ "cross-build-end" ]
 
 CMD iptables -F \
 && iptables -t nat -F \
