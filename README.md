@@ -4,7 +4,7 @@
 
 ## Using docker
 ```sh
-docker run -d --name port-forwarding --cap-add=NET_ADMIN -e TARGET_IP=192.168.1.100 -e TARGET_PORT=12345 -p 8123:8000 pilotak/rpi-port-forward
+docker run -d --name port-forwarding --cap-add=NET_ADMIN -e TARGET_IP=192.168.1.100 -e TARGET_PORT=12345 -p 8123:8000 pilotak/port-forwarding
 ```
 
 ## Using docker-compose
